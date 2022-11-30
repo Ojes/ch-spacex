@@ -6,19 +6,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleFavorite } from '../states/favoritesSlice';
 import { isFavorite } from '../states/favoritesSelector';
 
-export function Item({
-  data: {
-    rocket: { rocket_name },
-    details,
-    launch_date_local,
-  },
-  className,
-}) {
+export function Item(props) {
+  const {
+    data: {
+      rocket: { rocket_name },
+      details,
+      launch_date_local,
+    },
+    className,
+  } = props;
+
   const isInFavoriteList = useSelector(isFavorite(rocket_name));
   const dispatch = useDispatch();
 
   function toggleFavoriteHandle() {
-    dispatch(toggleFavorite(rocket_name));
+    dispatch(toggleFavorite(props.data));
   }
 
   return (
@@ -26,7 +28,9 @@ export function Item({
       <div className={classNames('flex rounded-lg shadow-sm overflow-hidden')}>
         <img src="https://via.placeholder.com/150" atl="" />
         <div className="flex flex-col px-4 pt-3 pb-1 w-full">
-          <h3 className="font-medium text-sm uppercase mb-1">{rocket_name}</h3>
+          <h3 className="font-medium text-sm uppercase mb-1">
+            <a href={`/rocket/${rocket_name}`}>{rocket_name}</a>
+          </h3>
           <p className="text-xs text-ellipsis overflow-hidden max-h-[50px]">{details}</p>
           <footer className="mt-auto flex justify-between w-full">
             <time className="text-xs text-[#979797]" dateTime={launch_date_local}>
