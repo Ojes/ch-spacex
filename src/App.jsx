@@ -5,6 +5,7 @@ import { Launches } from './components/Launches';
 import { Favorites } from './components/Favorites';
 
 function App() {
+  console.log('render');
   return (
     <div className="w-full">
       <main>

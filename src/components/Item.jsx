@@ -9,6 +9,7 @@ import { isFavorite } from '../states/favoritesSelector';
 export function Item(props) {
   const {
     data: {
+      mission_name,
       rocket: { rocket_name },
       details,
       launch_date_local,
@@ -16,7 +17,7 @@ export function Item(props) {
     className,
   } = props;
 
-  const isInFavoriteList = useSelector(isFavorite(rocket_name));
+  const isInFavoriteList = useSelector(isFavorite(mission_name));
   const dispatch = useDispatch();
 
   function toggleFavoriteHandle() {

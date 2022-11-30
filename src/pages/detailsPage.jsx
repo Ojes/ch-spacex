@@ -1,4 +1,4 @@
-export function Details() {
+export function DetailsPage() {
   return (
     <article className="w-full">
       <header className="w-full relative">
