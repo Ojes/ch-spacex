@@ -2,22 +2,21 @@ import { createSlice } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
 
-const initialState = { favorites: [] };
+const initialState = { favorites: {} };
 
 const favoritesSlice = createSlice({
   name: 'favorites',
   initialState,
-  reducer: {
-    addFavorite(state, action) {
-      if (state.favorites.find(action.payload)) return;
-
-      state.favorites = [state.favorites, action.payload];
-    },
-    removeFavorite(state, action) {
-      state.favorites = state.favorites.filter((favorite) => favorite !== action.payload);
+  reducers: {
+    toggleFavorite(state, action) {
+      if (action.payload in state.favorites) {
+        delete state.favorites[action.payload];
+      } else {
+        state.favorites = { ...state.favorites, [action.payload]: true };
+      }
     },
   },
 });
 
-export const { addFavorite, removeFavorite } = favoritesSlice.actions;
+export const { toggleFavorite } = favoritesSlice.actions;
 export default persistReducer({ key: 'favorites', storage }, favoritesSlice.reducer);
