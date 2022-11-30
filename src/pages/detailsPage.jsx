@@ -1,13 +1,25 @@
+import { useGetRocketQuery } from '../services/rockets';
+import { useParams } from 'react-router-dom';
+
 export function DetailsPage() {
+  const params = useParams();
+  const { data, isLoading, error } = useGetRocketQuery(params.id);
+
+  // TODO: Create Error Handler with loading
+  if (isLoading) return <p className="px-6">Loading...</p>;
+  if (error) return <p className="px-6">Oops..</p>;
+
+  const { rocket_name, description, first_flight } = data.rocket;
+
   return (
     <article className="w-full">
       <header className="w-full relative">
         <img className="h-[360px] object-cover w-full" src="https://via.placeholder.com/150" atl="" />
         <div className="absolute bottom-3.5 z-10px px-5">
-          <time className="text-xs text-[#595959]" dateTime="">
-            March 10, 2021
+          <time className="text-xs text-[#979797]" dateTime={first_flight}>
+            {dayjs(first_flight).format('MMMM DD, YYYY')}
           </time>
-          <h1 className="uppercase font-medium text-2xl">Falcon 9</h1>
+          <h1 className="uppercase font-medium text-2xl">{rocket_name}</h1>
           <p className="text-sm uppercase">First orbital class rocket capable of refight</p>
         </div>
       </header>
@@ -37,12 +49,7 @@ export function DetailsPage() {
       </div>
       <div className="pt-10">
         <h2 className="text-xs uppercase px-6  pb-1.5">About launched</h2>
-        <p className="text-xs px-6">
-          Falcon 9 is a reusable, two-stage rocket designed and manufactured by SpaceX for the reliable and safe
-          transport of people and payloads into Earth orbit and beyond. Falcon 9 is the world’s first orbital class
-          reusable rocket. Reusability allows SpaceX to refly the most expensive parts of the rocket, which in turn
-          drives down the cost of space access.
-        </p>
+        <p className="text-xs px-6">{description}</p>
 
         <h2 className="text-xs uppercase px-6 pt-10 pb-1.5">Overview</h2>
         <img className="h-[163px] w-full object-cover" src="https://via.placeholder.com/150" alt="" />

@@ -10,7 +10,7 @@ export function Item(props) {
   const {
     data: {
       mission_name,
-      rocket: { rocket_name },
+      rocket: { rocket_name, rocket_id },
       details,
       launch_date_local,
     },
@@ -30,7 +30,7 @@ export function Item(props) {
         <img src="https://via.placeholder.com/150" atl="" />
         <div className="flex flex-col px-4 pt-3 pb-1 w-full">
           <h3 className="font-medium text-sm uppercase mb-1">
-            <a href={`/rocket/${rocket_name}`}>{rocket_name}</a>
+            <a href={`/rocket/${rocket_id}`}>{rocket_name}</a>
           </h3>
           <p className="text-xs text-ellipsis overflow-hidden max-h-[50px]">{details}</p>
           <footer className="mt-auto flex justify-between w-full">
