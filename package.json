@@ -10,9 +10,12 @@
   "dependencies": {
     "@heroicons/react": "^2.0.13",
     "@reduxjs/toolkit": "^1.9.1",
+    "classnames": "^2.3.2",
+    "dayjs": "^1.11.6",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-redux": "^8.0.5",
+    "react-router-dom": "^6.4.3",
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
