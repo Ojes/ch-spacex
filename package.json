@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.13",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
