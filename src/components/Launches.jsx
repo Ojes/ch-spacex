@@ -9,8 +9,8 @@ export function Launches() {
   const { data, isLoading, error, refetch } = useGetLaunchesQuery(searchByMission);
   const debounceSearchQuery = useDebounce(refetch);
 
-  if (isLoading) return <p className="px-6">Loading...</p>;
-  if (error) return <p className="px-6">Oops..</p>;
+  if (isLoading) return <p className="content py-6">Loading...</p>;
+  if (error) return <p className="content py-6">Oops..</p>;
 
   const onSearchByMissionHandle = (event) => {
     setSearchByMission(event.target.value);

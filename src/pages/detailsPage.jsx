@@ -1,15 +1,19 @@
-import { useGetRocketQuery } from '../services/rockets';
 import { useParams } from 'react-router-dom';
+import dayjs from 'dayjs';
+import { ArrowLeftIcon } from '@heroicons/react/20/solid';
+import { StarIcon } from '@heroicons/react/20/solid';
+import { StarIcon as StartOutlineIcon } from '@heroicons/react/24/outline';
+import { useGetRocketQuery } from '../services/rockets';
 
 export function DetailsPage() {
   const params = useParams();
   const { data, isLoading, error } = useGetRocketQuery(params.id);
 
   // TODO: Create Error Handler with loading
-  if (isLoading) return <p className="px-6">Loading...</p>;
-  if (error) return <p className="px-6">Oops..</p>;
+  if (isLoading) return <p className="content">Loading...</p>;
+  if (error) return <p className="content">Oops..</p>;
 
-  const { rocket_name, description, first_flight } = data.rocket;
+  const { rocket_name, description, first_flight } = data;
 
   return (
     <article className="w-full">
@@ -23,7 +27,7 @@ export function DetailsPage() {
           <p className="text-sm uppercase">First orbital class rocket capable of refight</p>
         </div>
       </header>
-      <div className="flex  text-center justify-around content">
+      <div className="flex pt-6 text-center justify-around content sm:bg-gray-[#828282]">
         <div className="flex-1 px-4 border-r border-[#d9d9d9]">
           <p className="text-2xl">122</p>
           <p className="text-[10px] text-[#595959] uppercase">
@@ -47,7 +51,7 @@ export function DetailsPage() {
           </p>
         </div>
       </div>
-      <div className="pt-10 content">
+      <div className="pt-10 content sm:text-center">
         <h2 className="text-xs uppercase px-6  pb-1.5">About launched</h2>
         <p className="text-xs px-6">{description}</p>
 
@@ -65,7 +69,7 @@ export function DetailsPage() {
         </div>
       </div>
 
-      <footer className="mt-10 flex flex-col w-full content">
+      <footer className="mt-10 flex flex-col w-full content pb-24">
         <p className="text-xs text-[#262626]">For information about our launch services, contact sales@spacex.com</p>
         <div className="flex flex-wrap gap-4 w-full">
           <button className="border py-2.5 px-3 mt-6 w-max rounded text-sm text-[#020202] uppercase border-[#BDBDBD]">

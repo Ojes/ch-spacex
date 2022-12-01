@@ -3,7 +3,7 @@ import { apiBase } from './apiBase';
 export const rocketsApi = apiBase.injectEndpoints({
   endpoints: (builder) => ({
     getRocket: builder.query({
-      query: (id) => `${id}`,
+      query: (id) => `/rockets/${id}`,
     }),
   }),
 });
