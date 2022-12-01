@@ -27,7 +27,7 @@ export function DetailsPage() {
           <p className="text-sm uppercase">First orbital class rocket capable of refight</p>
         </div>
       </header>
-      <div className="flex pt-6 text-center justify-around content sm:bg-gray-[#828282]">
+      <div className="flex pt-6 text-center justify-around content sm:bg-[#828282]">
         <div className="flex-1 px-4 border-r border-[#d9d9d9]">
           <p className="text-2xl">122</p>
           <p className="text-[10px] text-[#595959] uppercase">
