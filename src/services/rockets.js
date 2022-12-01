@@ -1,10 +1,6 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { apiBase } from './apiBase';
 
-const baseUrl = 'https://api.spacexdata.com/v3/rockets';
-
-export const rocketsApi = createApi({
-  reducerPath: 'rockets',
-  baseQuery: fetchBaseQuery({ baseUrl }),
+export const rocketsApi = apiBase.injectEndpoints({
   endpoints: (builder) => ({
     getRocket: builder.query({
       query: (id) => `${id}`,

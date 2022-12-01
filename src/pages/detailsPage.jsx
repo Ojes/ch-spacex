@@ -23,7 +23,7 @@ export function DetailsPage() {
           <p className="text-sm uppercase">First orbital class rocket capable of refight</p>
         </div>
       </header>
-      <div className="flex  text-center justify-around p-6">
+      <div className="flex  text-center justify-around content">
         <div className="flex-1 px-4 border-r border-[#d9d9d9]">
           <p className="text-2xl">122</p>
           <p className="text-[10px] text-[#595959] uppercase">
@@ -47,14 +47,16 @@ export function DetailsPage() {
           </p>
         </div>
       </div>
-      <div className="pt-10">
+      <div className="pt-10 content">
         <h2 className="text-xs uppercase px-6  pb-1.5">About launched</h2>
         <p className="text-xs px-6">{description}</p>
 
         <h2 className="text-xs uppercase px-6 pt-10 pb-1.5">Overview</h2>
+      </div>
+      <div className="w-full">
+        {/** SLIDER */}
         <img className="h-[163px] w-full object-cover" src="https://via.placeholder.com/150" alt="" />
-        <div>
-          {/** SLIDER */}
+        <div className="content">
           <h3 className="text-xs uppercase px-6 pt-5 pb-1.5">First stage</h3>
           <p className="text-xs px-6">
             Falcon 9’s first stage incorporates nine Merlin engines and aluminum-lithium alloy tanks containing liquid
@@ -62,14 +64,17 @@ export function DetailsPage() {
           </p>
         </div>
       </div>
-      <footer className="mt-10 flex flex-col w-full px-6">
+
+      <footer className="mt-10 flex flex-col w-full content">
         <p className="text-xs text-[#262626]">For information about our launch services, contact sales@spacex.com</p>
-        <button className="border py-2.5 px-3 mt-6 w-max rounded text-sm text-[#020202] uppercase border-[#BDBDBD]">
-          Download user's guide
-        </button>
-        <button className="border py-2.5 px-3  mt-6 w-max rounded text-sm text-[#020202] uppercase border-[#BDBDBD]">
-          Capabilities and services
-        </button>
+        <div className="flex flex-wrap gap-4 w-full">
+          <button className="border py-2.5 px-3 mt-6 w-max rounded text-sm text-[#020202] uppercase border-[#BDBDBD]">
+            Download user's guide
+          </button>
+          <button className="border py-2.5 px-3  mt-6 w-max rounded text-sm text-[#020202] uppercase border-[#BDBDBD]">
+            Capabilities and services
+          </button>
+        </div>
       </footer>
     </article>
   );

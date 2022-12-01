@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore } from 'redux-persist';
-import { launchesApi } from '../services/launches';
-import { rocketsApi } from '../services/rockets';
+import { apiBase } from '../services/apiBase';
 import rootReducer from './reducer';
 
 const store = configureStore({
@@ -9,7 +8,7 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
-    }).concat(launchesApi.middleware, rocketsApi.middleware),
+    }).concat(apiBase.middleware),
 });
 
 const persistor = persistStore(store);
