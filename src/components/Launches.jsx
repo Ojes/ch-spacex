@@ -18,8 +18,8 @@ export function Launches() {
   };
 
   return (
-    <section className="w-full px-6">
-      <header className="p-4 flex sm:flex-reverse flex-wrap items-center">
+    <section className="w-full content">
+      <header className="p-4 flex sm:flex-row-reverse flex-wrap items-center justify-between">
         <div className="relative mt-1 rounded-md shadow-sm  w-full sm:max-w-[413px]">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -33,7 +33,7 @@ export function Launches() {
             placeholder="Search all launches"
           />
         </div>
-        <p className="text-sm mt-3 sm:mt-0 sm:ml-auto">Total ({data.length})</p>
+        <p className="text-sm mt-3 sm:mt-0">Total ({data.length})</p>
       </header>
       <ItemList source={data} />
     </section>

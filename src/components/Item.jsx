@@ -26,9 +26,9 @@ export function Item(props) {
 
   return (
     <div className={className}>
-      <div className={classNames('flex rounded-lg shadow-sm overflow-hidden')}>
-        <img src="https://via.placeholder.com/150" atl="" />
-        <div className="flex flex-col px-4 pt-3 pb-1 w-full">
+      <div className={classNames('flex sm:h-[286px] sm:flex-col rounded-lg shadow-sm overflow-hidden')}>
+        <img className="sm:h-[150px] sm:w-full object-cover" src="https://via.placeholder.com/150" atl="" />
+        <div className="flex flex-1 flex-col px-4 pt-3 pb-1 w-full">
           <h3 className="font-medium text-sm uppercase mb-1">
             <a href={`/rocket/${rocket_id}`}>{rocket_name}</a>
           </h3>

@@ -33,7 +33,7 @@ export function Favorites() {
 
   return (
     <section className="w-full px-6">
-      <header className="p-4 flex sm:flex-reverse flex-wrap items-center">
+      <header className="p-4 flex sm:flex-row-reverse justify-between flex-wrap items-center">
         <div className="relative mt-1 rounded-md shadow-sm  w-full sm:max-w-[413px]">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -47,7 +47,7 @@ export function Favorites() {
             placeholder="Search favorites"
           />
         </div>
-        <p className="text-sm mt-3 sm:mt-0 sm:ml-auto">Total ({favorites.length})</p>
+        <p className="text-sm mt-3 sm:mt-0">Total ({favorites.length})</p>
       </header>
       <ItemList source={favorites} />
     </section>
